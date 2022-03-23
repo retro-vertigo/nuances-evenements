@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "settings": {
+    "typography": {
+        "dropCap": false,
+        "fontSizes": []
+    },
+    "color": {
+      "custom": false,
+      "palette": []
+    }
+  }
+}

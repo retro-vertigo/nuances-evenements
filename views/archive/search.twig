@@ -1,0 +1,21 @@
+{# see `archive.twig` for an alternative strategy of extending templates #}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  {# see `base.twig:27` for where this block's content will be inserted #}
+  <div class="content-wrapper">
+    {% for post in posts %}
+      <article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+        {% block content %}
+          <h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
+          <p>{{post.preview}}</p>
+          {% if post.get_thumbnail %}
+            <img src="{{post.thumbnail.src}}" />
+          {% endif %}
+        {% endblock %}
+      </article>
+    {% endfor %}
+
+    {% include 'partials/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+  </div>
+{% endblock %}

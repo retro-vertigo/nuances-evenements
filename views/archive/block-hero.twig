@@ -1,0 +1,39 @@
+{#
+/**
+ * Block Name: Hero block
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+{# <pre>
+  {{ dump(fields.image.id) }}
+</pre> #}
+
+
+<div class="banner-page-wrapper">
+  <div class="l-container --medium --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <div class="banner-page__inner">
+        <div class="banner-page__heading">
+          <h1 class="banner-page__title section-title u-remove-line-break">{{ fields.title }}</h1>
+          {% if fields.subtitle %}
+            <p class="banner-page__subtitle section-subtitle">{{ fields.subtitle }}</p>
+          {% endif %}
+        </div>
+
+        {% if fields.image %} 
+          <figure class="banner-page__figure image-figure">
+            <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+              {{ macros.get_rwd_image( fields.image.id, 'hero', 'large') }}
+            </div>
+          </figure>
+        {% endif %}
+        
+      </div>  {# end .block-inner #}
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

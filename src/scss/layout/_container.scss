@@ -1,0 +1,44 @@
+// ==============================================
+
+//        CENTERED CONTAINERS WITH MAX-WIDTH 
+
+// ==============================================
+
+
+// Wrapper centré avec largeur maxi
+.l-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-medium-width);
+  margin-left: auto;
+  margin-right: auto;
+
+  &.--wide {
+    max-width: var(--container-wide-width);
+
+    &.--h-padding {
+      max-width: calc(var(--container-wide-width) + var(--container-padding) * 2);
+    }
+  }
+
+  &.--large {
+    max-width: var(--container-large-width);    // alias
+  }
+
+  &.--small {
+    max-width: var(--container-small-width);
+
+    &.--h-padding {
+      max-width: calc(var(--container-small-width) + var(--container-padding) * 2);
+    }
+  }
+
+  &.--h-padding {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    max-width: calc(var(--container-medium-width) + var(--container-padding) * 2);
+    // padding-left: calc(var(--container-padding) + var(--sidebar-width));
+    // padding-right: calc(var(--container-padding) + var(--sidebar-width));
+  }
+
+}

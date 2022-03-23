@@ -1,0 +1,31 @@
+// ==============================================
+
+//        PRINT
+
+// ==============================================
+
+
+@media print {
+  
+  :root {
+    --header-height: 0;
+  }
+
+  // force theme light for print (on homepage)
+  body {
+    --color-body-background: white !important;
+    --color-body-text: black !important;
+    --color-heading: black !important;
+  }
+  
+  // Hide structural elements
+  .header-site,
+  .footer-site {
+    display: none;
+  }
+
+  // hide specific elements
+  .gridline {
+    display: none;
+  }
+}

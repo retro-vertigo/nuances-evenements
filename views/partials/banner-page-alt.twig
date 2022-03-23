@@ -1,0 +1,35 @@
+{#
+/**
+ * Banner alt version (Contact, pages légales)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="banner-page-alt-wrapper banner-wrapper">
+  <div class="l-container --h-padding">
+    <section class="banner-page-alt {% if post.thumbnail %}--with-image{% endif %}">
+
+      <div class="banner-page-alt__inner">
+        <div class="banner-page-alt__heading">
+          <h1 class="banner-page-alt__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ fields.banner_title }}</h1>
+          {% if fields.banner_text %}
+            <div class="banner-page-alt__text editor-text" data-aos="fade-up-smooth" data-aos-delay="400" data-aos-anchor-placement=".banner-wrapper">{{ fields.banner_text }}</div>
+          {% endif %}
+        </div>
+
+        {% if post.thumbnail %} 
+          <figure class="banner-page-alt__figure image-figure" data-aos="slide-image-big" data-aos-delay="600" data-aos-anchor-placement=".banner-wrapper">
+            <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+              {{ macros.get_rwd_image( post.thumbnail.id, 'banner', 'large') }}
+            </div>
+          </figure>
+        {% endif %}
+        
+      </div>  {# end .banner-XXX-inner #}
+      
+    </section>  {# end .banner-XXX #}
+  </div>  {# end .l-container #}
+</div>    {# end .banner-XXX-wrapper #}

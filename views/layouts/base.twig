@@ -1,0 +1,77 @@
+{% block html_head_container %}
+
+	{% include 'partials/html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{ body_class }}" data-template="base.twig">
+
+		{{ fn( 'file_get_contents', svg_sprite) }}
+
+		<div class="page-wrapper">
+
+			{% include 'partials/header-site.twig' %}
+
+			<main class="main">
+				{% include "partials/bg-top.twig" %}
+
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+
+			</main> {# end .main #}	
+		
+			{% include 'partials/footer-site.twig' %}
+
+		</div> {# end .page-wrapper #}	
+
+		{{ wp_footer }}
+
+	</body>
+</html>
+
+
+{# <section id="content" role="main" class="content-wrapper">
+		{% if title %}<h1>{{ title }}</h1>{% endif %}
+		<div class="wrapper {{ sidebar_class }}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</div>
+	</section> #}
+
+	{# {{post.content}} #}
+
+	{#	
+
+	<section class="test-container-wrapper">
+		<div class="l-container --medium --h-padding">
+			<div class="test-hero">
+				<h1>Faites de vos<br>événements<br>une expérience<br>humaine</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt laboriosam odit aliquid, vero nulla amet illum accusamus cumque fugit officia quisquam ab, tenetur perferendis cum placeat ullam est similique maiores molestias harum quod quaerat? Atque, veniam itaque quas in praesentium cumque eligendi aperiam est voluptatem, error, enim sapiente quae fugit.</p>
+			</div>
+		</div>
+
+		<div class="l-container --medium">
+			<div class="test-container --medium">
+				<p>l-container --medium : width 1080px</p>
+			</div>
+		</div>
+
+		<div class="l-container --medium --h-padding">
+			<div class="test-container --medium">
+				<p>l-container --medium --padding : width 1080px + padding 2rem</p>
+			</div>
+		</div>
+	</section> #}
+
+	{# <section id="content" role="main" class="content-wrapper">
+		{% if title %}<h1>{{ title }}</h1>{% endif %}
+		<div class="wrapper {{ sidebar_class }}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</div>
+	</section> #}

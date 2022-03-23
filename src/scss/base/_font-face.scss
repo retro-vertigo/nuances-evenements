@@ -1,0 +1,40 @@
+// ==============================================
+
+//        FONTS IMPORT
+
+// ==============================================
+
+@font-face {
+  font-family: 'Karla';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Karla-Regular.woff2") format("woff2"),
+       url("../fonts/Karla-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'Karla';
+  font-style:  normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Karla-SemiBold.woff2") format("woff2"),
+       url("../fonts/Karla-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: 'Karla';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Karla-Bold.woff2") format("woff2"),
+       url("../fonts/Karla-Bold.woff") format("woff");
+}
+
+
+@font-face {
+  font-family: 'Biko';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Biko-Bold.woff2") format("woff2"),
+       url("../fonts/Biko-Bold.woff") format("woff");
+}

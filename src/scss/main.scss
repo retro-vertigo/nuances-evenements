@@ -1,0 +1,117 @@
+
+
+//  Custom styles
+// -----------------------------------------------
+
+@import 'abstracts/mixins';     // index des mixins ET functions -> dans le répertoire abstracts/mixins/
+@import 'abstracts/variables';
+
+@import 'vendors/bootstrap/utilities/bootstrap-display';    // chargé aprés variables, requiert $grid-breakpoints 
+@import 'vendors/flickity/flickity';
+@import 'vendors/flickity/flickity-fade';
+@import "vendors/splitting/splitting";
+@import 'vendors/aos/aos';
+
+@import 'base/reboot';
+@import 'base/base';
+@import 'base/font-face';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'layout/*'; 
+    // TOADD _global partial with .page-wrapper, .main, (instead of .base)
+
+@import 'vendors-custom/flickity-theme-custom';
+@import 'vendors-custom/aos-custom';
+
+@import 'components/base/*';
+@import 'components/common/*';
+@import 'components/blocks/*';
+@import 'components/form-newsletter';
+@import 'components/pagination';
+@import 'components/menu-filters';
+@import 'components/card-post';
+@import 'components/grid-posts';
+@import 'components/slider-images';
+
+@import 'pages/*';
+
+@import 'base/print';     // load last for override previous rules
+
+@import 'shame/shame';
+
+
+
+
+.main {
+  // min-height: 1400px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+// ∆∆∆∆∆∆∆∆∆∆∆∆∆∆
+.test-container-wrapper {
+  margin-top: 100px;
+  @include bd();
+
+  .l-container {
+    @include bd(red);
+  }
+
+  .test-hero {
+    padding: 50px 0;
+    p {
+      margin-top: 50px;
+    }
+  }
+
+  .test-container {
+    @include flex-center();
+    min-height: 200px;
+    margin-top: 50px;
+    background-color: $color-primary-light;
+  }
+}
+
+
+/////
+.xdebug-var-dump {
+  position: absolute;
+  z-index: 500;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  font-size: 12px;
+  border: 1px solid #000;
+  overflow: scroll;
+  background-color: rgba(white,1);
+
+  overflow: visible;
+}
+
+// #__bs_notify__ {
+//   position: fixed;
+//   top: calc(100% - 50px) !important;
+//   border-radius: 0px !important;
+// }
+
+// .rwd-status {
+//   top: initial;
+//   left: initial;
+//   bottom: 0;
+//   right: 0; 
+// }
+
+// ∆∆∆∆∆∆∆∆∆∆
+.content-wrapper {
+  margin-top: 200px;
+  @include bd();
+}
+
+.block-cta-wrapper {
+  // @include bd();
+}

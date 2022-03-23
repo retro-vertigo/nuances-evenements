@@ -1,0 +1,240 @@
+// ==============================================
+
+//        GLOBAL LAYOUT
+
+// ==============================================
+
+
+//  Structure
+// -----------------------------------------------
+
+// wrap header, main and footer -> push footer on bottom
+.page-wrapper {
+  overflow: hidden;     // prevent background image overflow below footer
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: calc(var(--vh) * 100);    // fix 100vh in iOS and Chrome Android
+}
+
+.main {
+  flex-grow: 1;    // expand main content -> push footer on bottom
+}
+
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
+
+
+
+//  Banner layout
+// -----------------------------------------------
+
+.banner-wrapper {
+  position: relative;
+}
+
+
+
+//  Block layout
+// -----------------------------------------------
+
+// vertical margin 250px between blocks (-> pad-top : 50px + pad-bottom : 50px + margin-top : 150px) 
+.block-wrapper {
+  position: relative;
+  padding: 50px 0; 
+  margin-top: 150px;
+  
+  @include media-breakpoint-down(md) {
+    margin-top: 100px;
+  }
+  @include media-breakpoint-down(xs) {
+    margin-top: 40px;
+  }
+  // @include bg(red,0.05);
+}
+
+.block {
+  // @include bd();
+}
+
+
+
+
+//  Background page styles
+// -----------------------------------------------
+
+.bg-block,
+.bg-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+.bg-block {
+  mix-blend-mode: darken;
+
+  // --modifiers
+  &.--inverted {
+    img {
+      transform: scaleX(-1);
+    }
+  }
+
+  &.--bottom {
+    top: initial;
+    bottom: 0;
+  }
+
+  &.--double-light {
+    picture:first-child {
+      img {
+        transform: scaleX(-1);    // inverted
+      }
+    }
+    picture:last-child {
+      img {
+        max-width: 900px;
+      }
+    }
+  }
+
+  // bg double
+  picture + picture {
+    img {
+      // transform: scaleX(-1);
+      margin-top: 20%;
+    }
+  }
+
+
+  // ∆∆∆
+  // @include bg();
+  // @include bd(red,1);
+  // img {
+  //   // @include bd(green);
+  // }
+}
+
+
+
+//  Image styles
+// -----------------------------------------------
+
+.image-figure {
+  figcaption {
+    margin-top: 20px;
+    padding-right: 10px;
+    font-size: 15px;
+  }
+  // @include bd(red);
+}
+
+.image-wrapper {
+  position: relative; 
+  // @include bd(blue,1,2);
+
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  // -- modifiers
+  // forced aspec-ratio
+  &.--aspect-ratio {
+    @include aspect-ratio(1, 1, false);
+
+    img {
+      @include bg-cover();
+    }
+  }
+
+  // box-shadow orange
+  &.--box-shadow {
+    box-shadow: var(--primary-shadow);
+  }
+
+  // box-shadow orange glow shape
+  &.--glow {
+    box-shadow: 0px 80px 90px -80px #D98C19;
+  }
+
+  // background image on bottom left
+  &.--bg-shadow {
+    @include shadow-image();
+  }
+
+  // image rotated
+  &.--rotated {
+    --rotation: 2.5deg;
+    --rotation-bg: -2deg;
+    // transform: rotate(var(--rotation));
+    transform: rotate3d(0,0,1,var(--rotation));     // better ???
+
+    &.--bg-shadow:after {
+      transform: rotate(var(--rotation-bg));
+    }
+  }
+  
+  // @include bd(red,1);
+}
+
+
+//
+.motif-rosace {
+  position: absolute;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+}
+
+.motif-rosace-alt {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.motif-dots {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+}
+
+
+
+
+
+.btn-read-more {
+  color: $color-secondary;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-secondary-dark;
+  }
+}
+
+.read-more-content {
+  --height-open: auto;        // height value set to auto when open, will be replaced with real value calculated by JS for transition
+  height: 0;                  // height value when close (default state)
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.3s ease-out, opacity 0.3s linear;
+  
+  &.is-open {
+    height: var(--height-open);
+    opacity: 1;
+  }
+  // @include bd();
+}
+

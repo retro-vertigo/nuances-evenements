@@ -1,0 +1,11 @@
+{# Page listing Actualités #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{% include "partials/banner-page-alt.twig" with { fields: fn('get_fields') } %}
+
+	{% include "partials/listing-news.twig" with { txt_all_terms: 'Toutes les catégories', txt_load_more : 'Plus d\'articles' } %}
+
+{% endblock %}

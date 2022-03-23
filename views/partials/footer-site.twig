@@ -1,0 +1,63 @@
+
+{% set footer = acf_options.footer %}
+
+<footer class="footer-site">
+  <div class="l-container --h-padding">
+
+    <div class="footer-site__inner">
+
+      <div class="footer-row1">
+        <div class="footer-site__left">
+          <a href="{{ site.url }}" class="footer-brand" aria-label="Accueil">
+            <img src="{{ image_link }}logo-dark.svg" alt="Nuances événements" aria-hidden="true">
+          </a>
+          {% if footer.text %}
+            <p class="footer-text">{{ footer.text}}</p>
+          {% endif %}
+
+          <div class="footer-infos">
+            {% if footer.address %}
+              <p class="footer-address">{{ footer.address }}</p>
+            {% endif %}
+            {% if footer.phone %}
+              <a href="tel:{{ footer.phone|replace({' ':''}) }}" class="footer-phone footer-coords">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-phone"></use></svg>
+                <span>Tél : {{ footer.phone }}</span>
+              </a>
+            {% endif %}
+            {# Obfuscate email #}
+            <a href="javascript:location='mailto:\u0063\u006f\u006e\u0074\u0061\u0063\u0074\u0040\u006e\u0075\u0061\u006e\u0063\u0065\u0073\u002d\u0065\u0076\u0065\u006e\u0065\u006d\u0065\u006e\u0074\u0073\u002e\u0066\u0072';void 0" class="footer-email footer-coords">
+              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail"></use></svg>
+              <span>
+                <script>document.write('\u0063\u006f\u006e\u0074\u0061\u0063\u0074\u0040\u006e\u0075\u0061\u006e\u0063\u0065\u0073\u002d\u0065\u0076\u0065\u006e\u0065\u006d\u0065\u006e\u0074\u0073\u002e\u0066\u0072')</script>
+              </span>
+            </a>
+            {% if acf_options.page_contact %}
+              <a href="{{ TimberPost(acf_options.page_contact).link }}" class="btn"><span>{{ __('Écrivez-nous') }}</span></a>
+            {% endif %}
+          </div>
+        </div>
+
+
+        <div class="footer-site__right">
+          {% if footer.title_newsletter %}
+            <p class="footer-title-newsletter h3">{{ footer.title_newsletter }}</p>
+          {% endif %}
+          {# Form newsletter with Send in blue #}
+          <div class="form-newsletter-wrapper">
+            {% set shortcode = "[sibwp_form id=1]" %}
+						{{ fn('do_shortcode', shortcode) }}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-row2">
+        {% include "partials/nav-legal.twig" %}
+      </div>
+    
+    </div>
+
+  </div>
+</footer>
+

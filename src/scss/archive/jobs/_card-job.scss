@@ -1,0 +1,164 @@
+// ==============================================
+
+//        CARD JOB
+
+// ==============================================
+
+
+
+//  Card
+// -----------------------------------------------
+
+
+.card-job {  
+  --color-theme: var(--color-light-black);
+  --color-bg: var(--color-light-grey);
+  position: relative;
+  text-transform: uppercase;
+
+  &:nth-child(even) .card-job__link {
+    --color-bg: transparent;
+  }
+}
+
+.card-job__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 1rem 22px 74px;
+  background-color: var(--color-bg);
+  transition: background-color $trans-duration, transform $trans-duration;
+}
+
+// hover apply only on link (not on single-job page)
+a.card-job__link:hover {
+  background-color: lighten($color-light-grey, 5);
+
+  .card-job__more {
+    span {
+      transform: translateX(30px);
+      transition: transform 0.4s easeInOutQuad 0s;
+    }
+
+    &:after {
+      transform: scaleX(0);
+      transition: transform 0.4s easeInOutQuad 0s;
+    }
+
+    &:before {
+      transform: scaleX(1);
+      transition: transform 0.3s easeOutQuad 0.3s;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .card-job__num {
+      transform: translateX(-50%) translateY(-50%) scale(1.12);
+      will-change: transform;
+    }
+  }
+}
+
+
+.card-job__num {
+  @include flex-center();
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  font-family: $font-title;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+  background-color: var(--color-theme);
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform 0.3s;
+}
+
+.card-job__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-job__domain {
+  font-weight: 600;
+  color: var(--color-theme);
+}
+
+.card-job__title {
+  margin-top: 1rem;
+  font-family: $font-title;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $color-dark-grey;
+}
+
+.card-job__metas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-left: -1rem;
+  color: $color-dark-grey;
+  // @include bd();
+
+  > * {
+    margin: 0 1rem;
+  }
+}
+
+.card-job__more {
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(sm) {
+  .card-job__link {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 2rem 22px 84px;
+  }
+
+  .card-job__num {
+    transform: translateX(-20px) translateY(-50%);
+  }
+
+  .card-job__metas {
+    font-size: 14px;
+  }
+
+  .card-job__more {
+    margin-top: 1rem;
+    margin-left: unset;
+    padding-left: unset !important;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .card-job__link {
+    padding: 22px 1rem 22px 64px;
+  }
+
+  .card-job__num {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    top: 22px;
+    transform: translateX(-10px);
+  }
+
+  .card-job__title {
+    margin-top: 1rem;
+    font-size: 18px;
+  }
+
+  .card-job__metas {
+    flex-direction: column;
+  }
+}

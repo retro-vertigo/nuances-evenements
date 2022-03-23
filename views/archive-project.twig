@@ -1,0 +1,17 @@
+{# Page Références - listing #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+  {% include "partials/banner-archive.twig" with { 
+    title: acf_options.banner_references_title, 
+    text: acf_options.banner_references_text, 
+  } %}
+
+  {% include "partials/listing-projects.twig" with { 
+    txt_all_terms: 'Toutes les références', 
+    txt_load_more : 'Plus de références' 
+  } %}
+
+{% endblock %}

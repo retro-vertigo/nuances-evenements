@@ -1,0 +1,150 @@
+:root {
+  --color-primary: #CE8E38;
+  --color-primary-hsl: 34.4deg, 60.4838709677%, 51.3725490196%;
+  --color-primary-h: 34.4deg;
+  --color-primary-s: 60.4838709677%;
+  --color-primary-l: 51.3725490196%;
+  --color-primary-soft: #F2C488;
+  --color-primary-soft-hsl: 33.9622641509deg, 80.303030303%, 74.1176470588%;
+  --color-primary-soft-h: 33.9622641509deg;
+  --color-primary-soft-s: 80.303030303%;
+  --color-primary-soft-l: 74.1176470588%;
+  --color-secondary: #12ACAC;
+  --color-secondary-hsl: 180deg, 81.0526315789%, 37.2549019608%;
+  --color-secondary-h: 180deg;
+  --color-secondary-s: 81.0526315789%;
+  --color-secondary-l: 37.2549019608%;
+  --color-primary-dark: #b98032;
+  --color-primary-dark-hsl: 34.6666666667deg, 57.4468085106%, 46.0784313725%;
+  --color-primary-dark-h: 34.6666666667deg;
+  --color-primary-dark-s: 57.4468085106%;
+  --color-primary-dark-l: 46.0784313725%;
+  --color-secondary-dark: #0e8a8a;
+  --color-secondary-dark-hsl: 180deg, 81.5789473684%, 29.8039215686%;
+  --color-secondary-dark-h: 180deg;
+  --color-secondary-dark-s: 81.5789473684%;
+  --color-secondary-dark-l: 29.8039215686%;
+  --color-light-black: #172630;
+  --color-light-black-hsl: 204deg, 35.2112676056%, 13.9215686275%;
+  --color-light-black-h: 204deg;
+  --color-light-black-s: 35.2112676056%;
+  --color-light-black-l: 13.9215686275%;
+  --color-medium-grey: #565453;
+  --color-medium-grey-hsl: 20deg, 1.775147929%, 33.137254902%;
+  --color-medium-grey-h: 20deg;
+  --color-medium-grey-s: 1.775147929%;
+  --color-medium-grey-l: 33.137254902%;
+  --color-grey: #8A8684;
+  --color-grey-hsl: 20deg, 2.5%, 52.9411764706%;
+  --color-grey-h: 20deg;
+  --color-grey-s: 2.5%;
+  --color-grey-l: 52.9411764706%;
+  --color-body-background: white;
+  --color-body-background-hsl: 0deg, 0%, 100%;
+  --color-body-background-h: 0deg;
+  --color-body-background-s: 0%;
+  --color-body-background-l: 100%;
+  --color-body-text: #565453;
+  --color-body-text-hsl: 20deg, 1.775147929%, 33.137254902%;
+  --color-body-text-h: 20deg;
+  --color-body-text-s: 1.775147929%;
+  --color-body-text-l: 33.137254902%;
+  --color-black: #000000;
+  --color-black-hsl: 0deg, 0%, 0%;
+  --color-black-h: 0deg;
+  --color-black-s: 0%;
+  --color-black-l: 0%;
+  --primary-gradient: linear-gradient(135deg, var(--color-primary) 10%, var(--color-primary-soft));
+  --primary-shadow: 0px 15px 20px -15px rgba(192, 124, 22, 0.4), 0px 50px 90px -50px rgba(242, 196, 136, 0.5);
+  --container-medium-width: 1080px;
+  --container-large-width: 1440px;
+  --container-wide-width: 1880px;
+  --container-small-width: 710px;
+  --sidebar-width: 60px;
+  --container-padding: calc(2rem + var(--sidebar-width));
+  --header-height: 100px;
+  --spacer: 1rem;
+  --vh: 1vh;
+}
+@media (max-width: 767.98px) {
+  :root {
+    --container-padding: 25px;
+    --header-height: 70px;
+  }
+}
+@media (max-width: 1199px), (max-height: 659px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}
+
+body.login {
+  background-color: white;
+}
+
+#login h1 a {
+  width: 80%;
+  height: 120px;
+  margin-bottom: 0;
+  background-image: url("../images/logo-login.svg");
+  background-position: center center;
+  background-size: contain;
+}
+
+#loginform,
+#lostpasswordform {
+  margin-top: 0;
+  border: unset;
+  background-color: #172630;
+}
+
+#loginform label,
+#lostpasswordform p label {
+  color: white;
+}
+
+input#user_login,
+input#user_pass {
+  margin-top: 6px;
+  padding: 6px 14px;
+  border: 0;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  border-radius: 0;
+  transition: background-color 0.25s;
+}
+
+#loginform .wp-hide-pw {
+  margin-top: 5px;
+}
+
+input#rememberme {
+  border: 0;
+  box-shadow: unset;
+}
+
+input#wp-submit {
+  background-color: #E5AB5C;
+  border-color: #de9430;
+  box-shadow: 0 1px 0 #654110;
+  text-shadow: unset;
+  color: white;
+  transition: background-color 0.25s;
+}
+input#wp-submit:hover {
+  background-color: #e2a24a;
+}
+
+#login p#nav a,
+#login p#backtoblog a,
+#login .privacy-policy-page-link a {
+  color: #12ACAC;
+}
+#login p#nav a:hover,
+#login p#backtoblog a:hover,
+#login .privacy-policy-page-link a:hover {
+  color: #0e8a8a;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=maps/custom-login.min.css.map */

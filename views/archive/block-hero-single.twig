@@ -1,0 +1,40 @@
+{#
+/**
+ * Block Name: Hero block - single page
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+{# <pre>
+  {{ dump(fields.image.id) }}
+</pre> #}
+
+
+<div class="banner-single-post-wrapper">
+  <div class="l-container --medium --h-padding">
+    <section class="{{ block.classes }}" id="{{ block.id }}">
+
+      <div class="banner-single-post__inner">
+        <div class="banner-single-post__heading">
+          <p class="banner-single-post__date">{{ current_post.date }}</p>
+          <h1 class="banner-single-post__title section-title u-remove-line-break">{{ current_post.title }}</h1>
+          {% if fields.subtitle %}
+            <p class="banner-single-post__subtitle section-subtitle">{{ fields.subtitle }}</p>
+          {% endif %}
+        </div>
+
+        {% if fields.image %} 
+          <figure class="banner-single-post__figure image-figure">
+            <div class="image-wrapper --aspect-ratio --box-shadow --bg-shadow --rotated">
+              {{ macros.get_rwd_image( fields.image.id, 'hero', 'large') }}
+            </div>
+          </figure>
+        {% endif %}
+        
+      </div>  {# end .block-inner #}
+      
+    </section>  {# end .block #}
+  </div>  {# end .l-container #}
+</div>    {# end .block-wrapper #}

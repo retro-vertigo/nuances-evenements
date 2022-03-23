@@ -1,0 +1,11 @@
+{# Page - Home, Agence, Notre différence #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	{% include "partials/banner-page.twig" with { 'fields': fn('get_fields') } %}
+
+	{{ post.content }}
+	
+{% endblock %}

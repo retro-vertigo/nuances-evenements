@@ -1,0 +1,27 @@
+{#
+/**
+ * Banner for archive pages with no image (Actualités, Références)
+ *
+ */
+#}
+
+{% import "macros.twig" as macros %}
+
+
+<div class="banner-page-alt-wrapper banner-wrapper">
+  <div class="l-container --h-padding">
+    <section class="banner-page-alt">
+
+      <div class="banner-page-alt__inner">
+        <div class="banner-page-alt__heading">
+          <h1 class="banner-page-alt__title section-title u-remove-line-break" data-splitting data-aos="title-split-down">{{ title }}</h1>
+          {% if text %}
+            <div class="banner-page-alt__text editor-text" data-aos="fade-up-smooth" data-aos-delay="500" data-aos-anchor-placement=".banner-wrapper">{{ text | readmore }}</div>
+            {# <div class="banner-page-alt__text editor-text" data-aos="fade-up-smooth" data-aos-delay="500" data-aos-anchor-placement=".banner-wrapper">{{ fn( 'readmore', text, 'Lire la suite' ) }}</div> #}
+          {% endif %}
+        </div>
+      </div>  {# end .banner-XXX-inner #}
+      
+    </section>  {# end .banner-XXX #}
+  </div>  {# end .l-container #}
+</div>    {# end .banner-XXX-wrapper #}

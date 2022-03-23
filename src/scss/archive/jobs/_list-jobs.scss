@@ -1,0 +1,59 @@
+// ==============================================
+
+//        LIST JOBS
+
+// ==============================================
+
+
+.section-list-jobs {
+  position: relative;
+  padding-top: 70px;
+}
+
+.section-list-jobs__inner {
+}
+
+
+.list-jobs {
+  grid-column: 3 / -3;   
+  @include list-flex(column);
+  position: relative;
+  z-index: 1;
+}
+
+.list-jobs__no-jobs {
+  margin-bottom: 0;
+  padding: 2rem 1rem;
+  font-family: $font-title;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-dark-grey;
+  background-color: $color-light-grey;
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(lg) {
+  .list-jobs {
+    grid-column: 2 / -2;   
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .section-list-jobs {
+    padding-top: 40px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .list-jobs {
+    grid-column: 1 / -1;  
+    padding: 0 var(--container-padding);
+  }
+}
+

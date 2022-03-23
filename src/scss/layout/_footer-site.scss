@@ -1,0 +1,237 @@
+// ==============================================
+
+//        FOOTER SITE
+
+// ==============================================
+
+
+.footer-site {
+  position: relative;
+  margin-top: 150px;
+  background-color: $color-light-black;
+  color: white;
+}
+
+.footer-site__inner {
+  padding: 150px 0;
+}
+
+.footer-row1 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+
+//  Footer left
+// -----------------------------------------------
+
+.footer-site__left {
+  grid-column: 1 / span 7;
+  grid-row: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 3rem;
+}
+
+.footer-brand {
+  img {
+    width: 272px;
+    height: 79px;
+  }
+}
+
+.footer-text {
+  margin-top: 45px;
+  color: $color-grey;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+.footer-infos {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // @include bd(cyan);
+}
+
+.footer-address {
+  margin-bottom: 20px;
+  font-size: 26px;
+  line-height: 1.28;
+}
+
+.footer-coords {
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+
+  &:hover span,
+  &:focus span {
+    color: $color-primary;
+  }
+
+  .icon {
+    flex-shrink: 0;
+    font-size: 20px;
+    fill: $color-grey;
+  }
+
+  span {
+    margin-left: 18px;
+    transition: color $trans-duration-fast;
+    color: white;
+  }
+
+  & + & {
+    margin-top: 12px;
+  }
+}
+
+.footer-site__left .btn {
+  margin-top: 28px;
+}
+
+
+//  Footer right
+// -----------------------------------------------
+
+
+.footer-site__right {
+  grid-column: 8 / span 5;
+  grid-row: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 480px;
+  // @include bd(gold,0.5);
+}
+
+.footer-title-newsletter {
+  color: inherit;
+}
+
+.footer-site__right .btn {
+  margin-top: 28px;
+}
+
+
+//  Nav footer
+// -----------------------------------------------
+
+.footer-row2 {
+  margin-top: 50px;
+}
+
+.nav-legal__menu {
+  @include list-flex();
+  // @include bd(white);
+}
+
+.nav-legal__item {
+  padding-right: 16px;
+
+  & + & {
+    position: relative;
+    padding-left: 16px;
+
+    &:before {
+      @include pseudo-block(4px, 4px, $color-primary);
+      top: 50%;
+      left: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+  } 
+}
+
+.nav-legal__link {
+  @include inline-flex-center($align:v);
+  padding: 8px 0;
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+  color: white;
+  transition: color $trans-duration-fast;
+
+  &:hover,
+  &:focus,
+  .nav-primary__item.is-active > & {
+    color: $color-primary;
+  }
+}
+
+
+
+//  MQ Breakpoints
+// -----------------------------------------------
+
+@include media-breakpoint-down(md) {
+  .footer-site {
+    margin-top: 100px;
+  }
+  .footer-site__inner {
+    padding: 100px 0;
+  }
+  .footer-row1 {
+    display: block;
+  }
+  .footer-site__left {
+    align-items: flex-start;
+    padding-right: initial;
+  }
+  .footer-site__right {
+    margin-top: 70px;
+  }
+  .footer-address {
+    font-size: 24px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .footer-site {
+    margin-top: 75px;
+  }
+  .footer-site__inner {
+    padding: 60px 0;
+  }
+  .footer-address {
+    font-size: 22px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .footer-coords {
+    padding-right: initial;
+
+    .icon {
+      font-size: 20px;
+    }
+  
+    span {
+      font-size: 17px;
+      margin-left: 12px;
+    }
+
+    & + & {
+      margin-top: 20px;
+    }
+  }
+
+  .nav-legal__menu {
+    flex-direction: column;
+    // align-items: center;
+  }
+  .nav-legal__item {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  
+    &:before {
+      display: none;
+    }
+  }
+  .nav-legal__link {
+    padding: 12px 0;
+  }
+}

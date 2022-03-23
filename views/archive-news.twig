@@ -1,0 +1,17 @@
+{# Page Actualités - listing #}
+
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+  {% include "partials/banner-archive.twig" with { 
+    title: acf_options.banner_news_title, 
+    text: acf_options.banner_news_text, 
+  } %}
+
+  {% include "partials/listing-news.twig" with { 
+    txt_all_terms: 'Toutes les catégories', 
+    txt_load_more : 'Plus d\'articles' 
+  } %}
+
+{% endblock %}

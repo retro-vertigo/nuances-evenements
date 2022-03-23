@@ -1,0 +1,188 @@
+// ==============================================
+
+//        VARIABLES
+
+// ==============================================
+
+
+//  Colors
+// -----------------------------------------------
+
+// Brand colors
+$color-primary       : #CE8E38;
+$color-primary-medium: #E5AB5C;
+$color-primary-soft  : #F2C488;
+$color-primary-light : #FBEBCD;
+$color-secondary     : #12ACAC;
+
+// Brand variants (for hover state...)
+$color-primary-dark  : mix-darken($color-primary, 10);
+$color-secondary-dark: mix-darken($color-secondary, 20);
+
+// White / Black / Grey
+$color-white      : #FFFFFF;
+$color-light-black: #172630;
+$color-medium-grey: #565453;
+$color-grey       : #8A8684;
+
+
+// Feedback colors
+$color-error  : #ED4B46;
+$color-success: $color-secondary;
+
+// Alias context colors
+$color-body-background: white;
+$color-body-text      : $color-medium-grey;
+
+
+// Map pour créer des CSS variables de couleur à partir de variables Sass (avec formats hex, hsl, h, s, l)
+$map-colors: (
+  color-primary        : $color-primary,
+  color-primary-soft   : $color-primary-soft,
+  color-secondary      : $color-secondary,
+  color-primary-dark   : $color-primary-dark,
+  color-secondary-dark : $color-secondary-dark,
+  color-light-black    : $color-light-black,
+  color-medium-grey    : $color-medium-grey,
+  color-grey           : $color-grey,
+  color-body-background: $color-body-background,
+  color-body-text      : $color-body-text,
+
+  color-black: #000000,
+);
+
+  
+
+//  Typography / fonts
+// -----------------------------------------------
+
+$font-body       : 'Karla', sans-serif;
+$font-title      : 'Biko', sans-serif;
+$font-size-base  : 18px;
+$line-height-base: 1.4;
+
+
+//  Container sizes
+// -----------------------------------------------
+
+// Container's maximum width
+$container-wide-width  : 1880px;
+$container-large-width : 1440px;
+$container-medium-width: 1080px;                   // default container width
+$container-small-width : 710px;
+$container-width       : $container-medium-width;  // alias
+
+// 
+$container-padding-desktop: 2rem;
+$container-padding-mobile : 25px;
+
+// lateral space for menu when pivotated
+$sidebar-width: 60px;
+
+
+//  Misc sizes
+// -----------------------------------------------
+
+$spacer       : 1rem;
+$border-radius: 0;      // unused
+
+// hauteurs variables du header 
+$header-height-desktop: 100px;
+$header-height-mobile : 70px;
+
+
+//  Transitions
+// -----------------------------------------------
+
+$trans-duration     : 0.25s;
+$trans-duration-fast: 0.15s;
+$trans-color        : 0.2s linear;
+
+
+//  Grid breakpoints
+// -----------------------------------------------
+
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs : 0,
+  sm : 576px,
+  md : 768px,
+  lg : 940px,
+  xl : 1200px,
+  xxl: 1600px
+);
+
+// check if $grid-breakpoints is a valid map
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+//  Z-layer system
+// -----------------------------------------------
+
+// A map of z layers
+// All z-index values should be set there
+
+$z-layers: (
+  'modal'         : 110,
+  'overlay'       : 100,
+  'megamenu'      : 60,
+  'header'        : 50,
+  'dropdown'      : 20,
+  'default'       : 1,
+  'below'         : -1,
+  'bottomless-pit': -10000
+);
+
+
+//  CSS variables global
+// -----------------------------------------------
+
+:root {
+
+  // create CSS variables for colors from Sass variables in different notation
+  @each $name, $value in $map-colors {
+    @include defineCssVarsColors($name, $value);
+  }
+
+  --primary-gradient: linear-gradient(135deg, var(--color-primary) 10%, var(--color-primary-soft));
+  --primary-shadow: 0px 15px 20px -15px rgba(192, 124, 22, 0.4), 0px 50px 90px -50px rgba(242, 196, 136, 0.5);
+
+
+  // dynamic CSS variables, change when media-queries...
+  --container-medium-width: #{$container-medium-width};
+  --container-large-width : #{$container-large-width};
+  --container-wide-width  : #{$container-wide-width};
+  --container-small-width : #{$container-small-width};
+  --sidebar-width         : #{$sidebar-width};
+
+  --container-padding: calc(#{$container-padding-desktop} + var(--sidebar-width));
+  --header-height: #{$header-height-desktop};
+  --spacer: #{$spacer};
+  --vh: 1vh;    // fix 100vh in iOS and Chrome Android (css var --vh set with JS)
+
+
+  // MQ for CSS variables
+  @include media-breakpoint-down(sm) {
+    --container-padding: #{$container-padding-mobile};
+    --header-height: #{$header-height-mobile};
+  }
+
+  @media (max-width: 1199px), (max-height: 659px) {
+  // @media (max-width: 1049px), (max-height: 659px) {
+    --sidebar-width: 0px;
+  }
+}
+
+
+
+/// unused
+
+$color-dark-grey  : #484051;
+$color-light-grey : #EBEBEB;
+$color-light-white: #F2F2F2;
+
+// Social brand colors
+$color-linkedin : #1568BF;
